@@ -65,20 +65,95 @@ If no filter is provided the default is:
 
 `list:inbox AND status:incompleted AND dueBefore:tomorrow`
 
-*Optional*:  
+**Optional**:  
   %filter - The filter to use when requesting tasks from [RTM][]  
-*Provides*:
+**Requires**
+  none
+**Provides**: 
   %tasks - An array containing the tasks found.  Tasker doesn't support 
           multi-demensional arrays, so each task is encoded as a pipe (|)
           delimited string in the following order:
 
-          id | name | tags | # of notes | completed | priority | url | 
+          id | name* | tags | # of notes | completed | priority | url* | 
           postponed | estimate | location_id | due | created | modified 
+
+\* these items are returned in url-encoded format.  Use taskers "convert"
+   functionality to decode them.
 
 
 ### rtmGetLists
+Provides a list of Lists available in RTM.
+This only returns active, non-smart, non-deleted lists.
+
+**Optional**
+  none
+**Required**
+  none
+**Provides**
+  %lists - An array of lists names.  Tasker doesn't support multi-dimensional
+           arrays, so each list is a pipe (|) delimited string in the following
+           order:
+           
+           id | name
+
+### rtmAddTask
+Adds a task to RTM using SmartAdd format.  See here: [RTM SmartAdd][]
+
+**Optional**
+  none
+**Required**
+  %newtask - A string, in SmartAdd format, containing a task to add to [RTM][]
+**Provides**
+  %newtask_id - the ID of the task that was added
+
+
+### rtmCompleteTask
+Marks a task "Complete"
+
+**Optional**
+  none
+**Required**
+  %task_id - the ID of the task to mark completed
+**Provides**
+  %completed_id - the ID of the task [RTM][] marked completed (should usually match %task_id)
+
+
+### rtmUncompleteTask
+Marks a task "incomplete"
+
+**Optional**
+  none
+**Required**
+  %task_id - the ID of the task to mark completed
+**Provides**
+  %uncompleted_id - the ID of the task [RTM][] marked incompleted (should usually match %task_id)
+
+
+
+Advanced
+--------
+If you are comfortable with javascript, and prefer to use libRTMTasker in a scriptlet action, 
+take a look at the rtmTasker.js file.   It contains documentation on the functions that are
+available to you in that environment.  Note, however, that unless you are very familiar with
+exactly how Tasker manages javascript variables, you may have trouble retrieving variables
+set in your javascriptlet for use in the rest of your task.  This is especially true since
+this library already strains Taskers javascript compatibility in several ways.  
+
+Todo
+----
+
+This library is not yet complete the following is a partial list of features to come:
+
+* Allow interaction with notes associated with tasks
+* Create functions for editing various task properties after creation
+
+
+ 
+
+
 
 
 [Tasker]: http://tasker.dinglisch.net "Tasker"
 [RTM]: http://www.rememberthemilk.com "Remember the Milk"
 [RTM API]: https://www.rememberthemilk.com/services/api/keys.rtm "RTM Api Key"
+[RTM SmartAdd]: http://www.rememberthemilk.com/help/?ctx=basics.smartadd.howdoiuse "RTM Smart Add"
