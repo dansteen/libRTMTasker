@@ -27,7 +27,7 @@ This is a two step process that only needs to be done once (per device):
 
 1. Create a task with a javascript action that looks like this: 
    ![1st Authentication Step](docs/authentication_step_1.png)
-   * Replace <path_to> with whatever folder you've downloaded the library to
+   * Replace \<path_to\> with whatever folder you've downloaded the library to
    * Notice that in the "Path" field the value provided is just a local path
      whereas in the "Libraries" field the values provided are full URIs.
    * I would *strongly* recommend that you download the jQuery library to your
@@ -47,9 +47,10 @@ This is a two step process that only needs to be done once (per device):
 Usage
 -----
 
-Each action provided by the libray has an acompanying javascript file.   In general,
-to use an action, you set some required variables (described in "Required" in the docs below), and then execute
-a javascript action similar to this: ![Generic Function](docs/function.png).   
+Each action provided by the library has an acompanying javascript file.   In general,
+to use an action, you set some variables (described in "Required" and "Optional" in 
+the docs below), and then execute a javascript action similar to this: 
+![Generic Function](docs/function.png).   
 Once that action has completed, it will set a variable (described in "Provides" below)
 that is then available to the rest of your tasker Task.   
 
@@ -59,19 +60,20 @@ Available Functions
 -------------------
 
 ### rtmGetTasks
-Provides a list of tasks that conform to the filter provided.  
+Provides a list of tasks that conform to the filter provided.
 If no filter is provided the default is:
 
-"list:inbox AND status:incompleted AND dueBefore:tomorrow"
+`list:inbox AND status:incompleted AND dueBefore:tomorrow`
 
-*Required*:  
-  filter - The filter to use when requesting tasks from [RTM][] (optional)
+*Optional*:  
+  %filter - The filter to use when requesting tasks from [RTM][]  
 *Provides*:
-  tasks - An array containing the tasks found.  Tasker doesn't support 
+  %tasks - An array containing the tasks found.  Tasker doesn't support 
           multi-demensional arrays, so each task is encoded as a pipe (|)
           delimited string in the following order:
 
-          id | name | tags | # of notes | completed | priority | url | postponed | estimate | location_id | due | created | modified 
+          id | name | tags | # of notes | completed | priority | url | 
+          postponed | estimate | location_id | due | created | modified 
 
 
 ### rtmGetLists
