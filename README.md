@@ -65,11 +65,11 @@ If no filter is provided the default is:
 
 `list:inbox AND status:incompleted AND dueBefore:tomorrow`
 
-**Optional**:  
+**Optional**:   
   %filter - The filter to use when requesting tasks from [RTM][]  
-**Requires**
+**Requires**:  
   none
-**Provides**: 
+**Provides**:   
   %tasks - An array containing the tasks found.  Tasker doesn't support 
           multi-demensional arrays, so each task is encoded as a pipe (|)
           delimited string in the following order:
@@ -85,11 +85,11 @@ If no filter is provided the default is:
 Provides a list of Lists available in RTM.
 This only returns active, non-smart, non-deleted lists.
 
-**Optional**
+**Optional**:  
   none
-**Required**
+**Required**:  
   none
-**Provides**
+**Provides**:  
   %lists - An array of lists names.  Tasker doesn't support multi-dimensional
            arrays, so each list is a pipe (|) delimited string in the following
            order:
@@ -99,33 +99,33 @@ This only returns active, non-smart, non-deleted lists.
 ### rtmAddTask
 Adds a task to RTM using SmartAdd format.  See here: [RTM SmartAdd][]
 
-**Optional**
+**Optional**:  
   none
-**Required**
+**Required**:  
   %newtask - A string, in SmartAdd format, containing a task to add to [RTM][]
-**Provides**
+**Provides**:  
   %newtask_id - the ID of the task that was added
 
 
 ### rtmCompleteTask
 Marks a task "Complete"
 
-**Optional**
+**Optional**:  
   none
-**Required**
+**Required**:  
   %task_id - the ID of the task to mark completed
-**Provides**
+**Provides**:  
   %completed_id - the ID of the task [RTM][] marked completed (should usually match %task_id)
 
 
 ### rtmUncompleteTask
 Marks a task "incomplete"
 
-**Optional**
+**Optional**:  
   none
-**Required**
+**Required**:  
   %task_id - the ID of the task to mark completed
-**Provides**
+**Provides**:  
   %uncompleted_id - the ID of the task [RTM][] marked incompleted (should usually match %task_id)
 
 
@@ -146,12 +146,9 @@ This library is not yet complete the following is a partial list of features to 
 
 * Allow interaction with notes associated with tasks
 * Create functions for editing various task properties after creation
-
+* Shrink images in documentation :-)
 
  
-
-
-
 
 [Tasker]: http://tasker.dinglisch.net "Tasker"
 [RTM]: http://www.rememberthemilk.com "Remember the Milk"
