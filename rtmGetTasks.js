@@ -13,8 +13,11 @@
 //              due | created | modified   
 function rtmGetTasks(){
 
+	// Javascript does not allow passing of undefined variables to functions
+	// so we need to set it if it's not already set
+	var filter = typeof filter == 'undefined' ? '' : filter ;
 	// get tasks
-	tasks = getTasks(tk.local('filter'));
+	tasks = getTasks(filter);
 
 	// the getTask function above returns an array of Objects
 	// This won't work for tasker so we convert it.

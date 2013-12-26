@@ -224,13 +224,11 @@ function getTasks(filter) {
 	       }
 	       // if there are tags get them
 	       if( ! $.isEmptyObject(series['tags']) ) {
-	         if( typeof(series['tags']['tag']) == 'string' ) {
-	           tags = series['tags']['tag'];
+		 if( Array.isArray(series['tags']['tag']) == false ){
+			tags = series['tags']['tag'];
 	         }else{
-	           $.each(series['tags']['tag'], function(index, tag) {
-		      tags = tags.length != 0 ? tags+","+tag : tag;
-		   });
-		   }
+			tags = series['tags']['tag'].join(';');
+		 }
 	       }
 
 	       // build our series line
