@@ -6,7 +6,7 @@
 //   your account
 
 // Make sure jQuery is loaded
-if( typeof jQuery == 'undefiend' ){
+if( typeof jQuery == 'undefined' ){
 	tk.flashLong( 'Please make sure that the jQuery library is included.');
 	exit;
 }
