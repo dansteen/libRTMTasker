@@ -68,7 +68,7 @@ If no filter is provided the default is:
 **Optional**:   
   %filter - The filter to use when requesting tasks from [RTM][]  
 **Requires**:  
-  none
+  none  
 **Provides**:   
   %tasks - An array containing the tasks found.  Tasker doesn't support 
           multi-demensional arrays, so each task is encoded as a pipe (|)
@@ -86,9 +86,9 @@ Provides a list of Lists available in RTM.
 This only returns active, non-smart, non-deleted lists.
 
 **Optional**:  
-  none
+  none  
 **Required**:  
-  none
+  none  
 **Provides**:  
   %lists - An array of lists names.  Tasker doesn't support multi-dimensional
            arrays, so each list is a pipe (|) delimited string in the following
@@ -100,9 +100,9 @@ This only returns active, non-smart, non-deleted lists.
 Adds a task to RTM using SmartAdd format.  See here: [RTM SmartAdd][]
 
 **Optional**:  
-  none
+  none  
 **Required**:  
-  %newtask - A string, in SmartAdd format, containing a task to add to [RTM][]
+  %newtask - A string, in SmartAdd format, containing a task to add to [RTM][]  
 **Provides**:  
   %newtask_id - the ID of the task that was added
 
@@ -111,9 +111,9 @@ Adds a task to RTM using SmartAdd format.  See here: [RTM SmartAdd][]
 Marks a task "Complete"
 
 **Optional**:  
-  none
+  none  
 **Required**:  
-  %task_id - the ID of the task to mark completed
+  %task_id - the ID of the task to mark completed  
 **Provides**:  
   %completed_id - the ID of the task [RTM][] marked completed (should usually match %task_id)
 
@@ -122,9 +122,9 @@ Marks a task "Complete"
 Marks a task "incomplete"
 
 **Optional**:  
-  none
+  none  
 **Required**:  
-  %task_id - the ID of the task to mark completed
+  %task_id - the ID of the task to mark completed  
 **Provides**:  
   %uncompleted_id - the ID of the task [RTM][] marked incompleted (should usually match %task_id)
 
