@@ -11,11 +11,8 @@
 //              completed | priority | url | 
 //              postponed | estimate | location_id | 
 //              due | created | modified   
-function rtmGetTasks(){
+function rtmGetTasks(filter){
 
-	// Javascript does not allow passing of undefined variables to functions
-	// so we need to set it if it's not already set
-	var filter = typeof filter == 'undefined' ? '' : filter ;
 	// get tasks
 	tasks = getTasks(filter);
 
@@ -55,5 +52,9 @@ if( tk.global('RTM_TOKEN') == 'undefined'){
 }
 // create our varaiable so it gets passed back into takser
 var tasks = [];
+// Javascript does not allow passing of undefined variables to functions
+// so we need to set it if it's not already set
+var filter = typeof filter == 'undefined' ? '' : filter ;
+
 // Run our stuff
-rtmGetTasks();
+rtmGetTasks(filter);

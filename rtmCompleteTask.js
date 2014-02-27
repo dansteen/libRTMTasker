@@ -25,5 +25,9 @@ if( tk.global('RTM_TOKEN') == 'undefined'){
 	exit;
 }
 
+// Javascript does not allow passing of undefined variables to functions
+// so we need to set it if it's not already set
+var task_id = typeof task_id == 'undefined' ? '' : task_id ;
+
 var completed_id = completeTask(task_id);
 
