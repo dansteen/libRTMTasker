@@ -96,6 +96,10 @@ This only returns active, non-smart, non-deleted lists.
            
            id | name
 
+Note that the value returned is an array and the %ists1, %lists2, etc variables are populated.  
+However, due to the way Tasker converts array variables created in javascript, the base %lists 
+variables is left undefined.
+
 ### rtmAddTask
 Adds a task to RTM using SmartAdd format.  See here: [RTM SmartAdd][]
 
