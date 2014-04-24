@@ -5,10 +5,10 @@
 //   None
 // Results:
 //   Sets a local tasker variable called lists, that contains an array of list_id|list_name strings
-function rtmGetList(){
-	lists = getList();
+function rtmGetLists(){
+	lists = getLists();
 	$.each(lists, function(index, list){
-		lists[index] = list.join('|');
+		lists[index] = list['id'] + '|' + list['name'];
 	});
 }
 
@@ -35,4 +35,5 @@ if( tk.global('RTM_TOKEN') == 'undefined'){
 // create our variable so it is passed back to tasker
 var lists = [];
 // run our stuff
-rtmGetList();
+rtmGetLists();
+
