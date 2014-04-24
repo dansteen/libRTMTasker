@@ -82,7 +82,7 @@ function _generateAttributes(customAttributes){
 
     // add our sig to the attributes list
     attributes['api_sig'] = tk.convert( signature, 'toMd5');
-     
+
     return attributes;
 }
 
@@ -197,6 +197,7 @@ function getToken(){
 function getTasks(filter) {
 	// if no filter is specified, set the default
 	filter = typeof filter !== 'undefined' && filter.length > 0 ? filter : "list:inbox AND status:incomplete AND dueBefore:tomorrow";
+
 	// set our attributes
 	var attributes = Object.create(null);
 	attributes['method'] = 'rtm.tasks.getList';
@@ -211,7 +212,15 @@ function getTasks(filter) {
 	$.getJSON( RTM_URL, attributes, function( data ) {
           _processReturn(data);
 	  $.each(data['rsp']['tasks']['list'], function( index, list ) {
-	     $.each(list['taskseries'], function( index, series ) {
+         // we expect a taskseries in an array, but single tasks
+         // are returned as plain objects.  We put it in an array
+         // for consistency.
+         if( Array.isArray(list['taskseries'])){
+            taskseries = list['taskseries'];
+         }else {
+            taskseries = [ list['taskseries'] ];
+         }
+	     $.each(taskseries, function( index, series ) {
 	       var thisTask = Object.create(null);
 	       notecount=0;
 	       tags = "";
