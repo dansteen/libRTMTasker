@@ -16,9 +16,10 @@ if( RTM_URL == 'undefined'){
 	exit;
 }
 // Make sure we have gotten our FROB
-if( tk.getGlobal('RTM_FROB') == 'undefined'){
+if( tk.global('RTM_FROB') == 'undefined'){
 	tk.flashLong( 'Please run the rtmAuth_step_1 script first.');
 	exit;
 }
 
 getToken();
+
